@@ -1,0 +1,234 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f7;
+}
+
+.header {
+    width: 100%;
+    background-color: #007aff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Make the header fixed */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+nav.menu a:hover {
+    background-color: #0051a8;
+    border-radius: 8px;
+}
+
+.controls {
+    margin-top: 80px; /* Space below the fixed header */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 20px; /* Added padding for better spacing on mobile */
+}
+
+#cardCount {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #d1d1d6;
+    font-size: 16px;
+    color: #333;
+    max-width: 100%; /* Ensure the select box fits on smaller screens */
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: #007aff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    max-width: 100%; /* Ensure the button fits on smaller screens */
+}
+
+button:hover {
+    background-color: #0051a8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+    outline: none;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 80px; /* Adjust this value to create space below the fixed header */
+}
+
+.card {
+    width: 220px;
+    height: 280px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-front {
+    background-color: var(--card-color);
+    color: #fff;
+    font-size: 1.6em;
+}
+
+.card-back {
+    background-color: var(--card-color);
+    transform: rotateY(180deg);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* For positioning the category tag */
+}
+
+.card-back .category-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #fff;
+    color: var(--card-color);
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.card-back img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.card-back h3 {
+    margin: 10px 0;
+}
+
+.card-back p {
+    margin: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 5px;
+    }
+
+    nav.menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav.menu a {
+        padding: 10px;
+        display: block;
+    }
+
+    .controls {
+        margin-top: 100px; /* Adjust this value to ensure space for the header */
+        padding: 0 10px; /* Reduce padding on smaller screens */
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #cardCount, button {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 6px 12px; /* Adjust padding for smaller screens */
+    }
+
+    .card-container {
+        margin-top: 100px; /* Adjust this value for smaller screens */
+    }
+}
+
+.category-controls {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.category-controls h3 {
+    margin-bottom: 10px;
+}
+
+.category-controls .category-control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.category-controls .category-control label {
+    flex: 1;
+    font-weight: 600;
+}
+
+.category-controls .category-control button {
+    padding: 5px 10px;
+    font-size: 14px;
+    position: relative;
+}
+
+.category-controls .category-control .count-display {
+    position: absolute;
+    right: -80px; /* Adjust based on your design */
+    font-size: 14px;
+    color: #666;
+}

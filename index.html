@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Display</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="menu">
+            <a href="index.html">Random Cards</a>
+            <a href="all-cards.html">All Cards</a>
+        </nav>
+    </header>
+    <div class="controls">
+        <label for="cardCount">Select number of cards:</label>
+        <select id="cardCount">
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="9">9</option>
+            <option value="12">12</option>
+        </select>
+        <button id="goButton">Go</button>
+
+        <div class="category-controls">
+            <h3>Cards by Category</h3>
+            <div id="categoryControlsContainer">
+                <!-- Category controls will be populated here -->
+            </div>
+            <button id="categoryGoButton">Go by Category</button>
+            <div id="categorySummary">
+                <!-- Summary will be displayed here -->
+            </div>
+        </div>
+    </div>
+    <div id="cardContainer" class="card-container"></div>
+    <script src="js/script.js"></script>
+</body>
+</html>
